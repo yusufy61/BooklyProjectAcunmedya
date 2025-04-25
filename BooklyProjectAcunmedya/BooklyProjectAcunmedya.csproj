@@ -130,7 +130,9 @@
     <Compile Include="Controllers\AdminLayoutController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Data\BooklyContext.cs" />
+    <Compile Include="Entities\Admin.cs" />
     <Compile Include="Entities\Author.cs" />
     <Compile Include="Entities\Banner.cs" />
     <Compile Include="Entities\Book.cs" />
@@ -145,6 +147,10 @@
     <Compile Include="Migrations\202504241602438_InitialCreate.cs" />
     <Compile Include="Migrations\202504241602438_InitialCreate.Designer.cs">
       <DependentUpon>202504241602438_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202504251127034_mig_add_admin_table.cs" />
+    <Compile Include="Migrations\202504251127034_mig_add_admin_table.Designer.cs">
+      <DependentUpon>202504251127034_mig_add_admin_table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -308,6 +314,8 @@
     <Content Include="Views\AdminLayout\Index.cshtml" />
     <Content Include="Views\Category\CreateCategory.cshtml" />
     <Content Include="Views\Category\UpdateCategory.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\AdminLayout\AdminLayoutNavbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -343,6 +351,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202504241602438_InitialCreate.resx">
       <DependentUpon>202504241602438_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202504251127034_mig_add_admin_table.resx">
+      <DependentUpon>202504251127034_mig_add_admin_table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

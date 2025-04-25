@@ -18,6 +18,6 @@ namespace BooklyProjectAcunmedya.Data
         public DbSet<PhotoGallery> PhotoGalleries { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
-
+        public DbSet<Admin> Admins { get; set; }
     }
 }
