@@ -9,6 +9,7 @@ using BooklyProjectAcunmedya.Entities;
 
 namespace BooklyProjectAcunmedya.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         BooklyContext _context = new BooklyContext();
