@@ -8,7 +8,6 @@ using BooklyProjectAcunmedya.Entities;
 
 namespace BooklyProjectAcunmedya.Controllers
 {
-    [Authorize]
     public class BookController : Controller
     {
         BooklyContext context = new BooklyContext();
