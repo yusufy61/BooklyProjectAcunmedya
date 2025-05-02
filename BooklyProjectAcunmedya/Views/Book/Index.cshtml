@@ -4,7 +4,9 @@
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
+<br />
 <h3>Kitaplar</h3>
+<br />
 
 @{
     int count = 0;
@@ -14,7 +16,7 @@
     <div class="form-group">
         <label>Aranacak Kelime</label>
         <input type="text" name="searchText" placeholder="Aranacak Kelime" />
-        <button class="btn btn-dark btn-sm">Ara</button>
+        <button class="btn btn-primary btn-sm">Ara</button>
     </div>
 </form>
 
@@ -23,8 +25,8 @@
         <th>#</th>
         <th>Kapak Resmi</th>
         <th>Kitap Adı</th>
-        <th>Fiyat</th>
         <th>Yazar</th>
+        <th>Fiyat</th>
         <th>Sil</th>
         <th>Güncelle</th>
     </tr>
@@ -45,4 +47,4 @@
     }
 </table>
 <br />
-<td><a href="/Book/CreateBook/" class="btn btn-outline-dark">Yeni Kitap Ekle</a></td>
+<td><a href="/Book/CreateBook/" class="btn btn-outline-primary">Yeni Kitap Ekle</a></td>

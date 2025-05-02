@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using BooklyProjectAcunmedya.Data;
+using BooklyProjectAcunmedya.Entities;
 
 namespace BooklyProjectAcunmedya.Controllers
 {
@@ -30,6 +32,20 @@ namespace BooklyProjectAcunmedya.Controllers
         {
             var books = context.Books.OrderByDescending(x => x.BookId).Take(6).ToList();
             return PartialView(books);
+        }
+
+        public PartialViewResult SendMessage()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult SendMessage(Message message)
+        {
+            context.Messages.Add(message);
+            context.SaveChanges();
+            Thread.Sleep(2000); // Sistemi 2 saniyeliğine uykuya al
+            return RedirectToAction("Index");
         }
     }
 }

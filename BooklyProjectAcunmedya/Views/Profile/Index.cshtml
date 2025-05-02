@@ -1,0 +1,39 @@
+﻿@model BooklyProjectAcunmedya.Entities.Admin
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h3>Profil Bilgileri Günclleme</h3>
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="text-center">
+        <img src="@Model.ImageUrl" accesskey="" class="img-thumbnail" style="width:200px;height:200px" />
+        <input type="file" name="ImageFile" />
+    </div>
+
+    <input type="hidden" name="ImageUrl" value="@Model.ImageUrl" />
+    
+    <label>Ad</label>
+    <input type="text" name="FirstName" value="@Model.FirstName" class="form-control" required />
+    <br />
+
+    <label>Soyad</label>
+    <input type="text" name="LastName" value="@Model.LastName" class="form-control" required />
+    <br />
+
+    <label>Kullanıcı Adı</label>
+    <input type="text" name="UserName" value="@Model.UserName" class="form-control" required />
+    <br />
+    <br />
+
+    <label>Bilgileri Güncelleme için Şifrenizi Girin</label>
+    <input type="password" name="Password" class="form-control" />
+    
+    <p style="color:red">
+        @Html.ValidationSummary()
+    </p>
+
+    <button class="btn btn-outline-dark">Bilgileri Güncelle</button>
+</form>

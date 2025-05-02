@@ -19,12 +19,18 @@ namespace BooklyProjectAcunmedya.Controllers
         public ActionResult AdminLayoutNavbar()
         {
             var userName = Session["currentUser"];
-            var nameSurname = context.Admins
+            
+            ViewBag.nameSurname = context.Admins
                 .Where(x => x.UserName == userName)
                 .Select(x => x.FirstName + " " + x.LastName)
                 .FirstOrDefault();
 
-            ViewBag.nameSurname = nameSurname;
+            
+            ViewBag.imageUrl = context.Admins
+                .Where(x => x.UserName == userName)
+                .Select (x => x.ImageUrl)
+                .FirstOrDefault();
+
             return PartialView();
         }
     }

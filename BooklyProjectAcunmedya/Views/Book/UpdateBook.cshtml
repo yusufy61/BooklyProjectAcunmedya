@@ -1,0 +1,60 @@
+﻿@model BooklyProjectAcunmedya.Entities.Book
+@{
+    ViewBag.Title = "UpdateBook";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Kitap Bilgileri Güncelle</h2>
+<br />
+
+
+<form method="post" enctype="multipart/form-data">
+
+    <input type="hidden" name="BookId" value="@Model.BookId" />
+
+
+    <label>Kapak Resmi</label>
+    <div>
+        <img src="@Model.CoverImageUrl" accesskey="" class="img-thumbnail" style="width:200px;height:200px" />
+        <input type="file" name="ImageFile" />
+    </div>
+
+    <input type="hidden" name="ImageUrl" value="@Model.CoverImageUrl" />
+
+    <label>Kitap Adı</label>
+    <input type="text" name="BookName" class="form-control" value="@Model.BookName" required />
+    <br />
+
+    <label>Fiyatı</label>
+    <input type="text" name="Price" class="form-control" value="@Model.Price" required />
+    <br />
+
+    <label>Yazar</label>
+    <select name="AuthorName" class="form-control" required>
+        <option value="">Yazar seçiniz...</option>
+        @foreach (var author in (List<string>)ViewData["authors"])
+        {
+            <option value="@author">
+                @author
+            </option>
+        }
+    </select>
+    <br />
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="IsOnSale" id="isOnSaleCheckbox" value="true" required />
+        <label class="form-check-label" for="isOnSaleCheckbox">
+            Satışta mı?
+        </label>
+    </div>
+    <br />
+
+    <p class="text-danger">
+
+    </p>
+
+    <button class="btn btn-primary"><i class="fa fa-save"></i> Güncelle</button>
+
+</form>
+

@@ -15,6 +15,7 @@ namespace BooklyProjectAcunmedya.Data
         public DbSet<Book> Books { get; set; }
         public DbSet<BookCategory> BookCategories { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Message> Messages { get; set; }
         public DbSet<PhotoGallery> PhotoGalleries { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }

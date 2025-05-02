@@ -17,6 +17,10 @@ namespace BooklyProjectAcunmedya.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            // Sisteme giriş yapma bölümüne gitmek isteyen biri çıkış yapsın 
+            // Çerezleri silinsin ardından giriş yapsın
+            FormsAuthentication.SignOut();
+            Session.Abandon();
             return View();
         }
 
@@ -33,7 +37,14 @@ namespace BooklyProjectAcunmedya.Controllers
             FormsAuthentication.SetAuthCookie(admin.UserName, false);
             // persistent olarak veridiğimiz şey kullanıcı kalıcı olsun mu diye soruyor. Ben kullanıcının kalıcı olarak durmasını istemiyorum o yüzden false olarka işaretledim.
             Session["currentUser"] = admin.UserName;
-            return RedirectToAction("Index","Category");
+            return RedirectToAction("Index","Dashboard");
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Default");
         }
     }
 }
