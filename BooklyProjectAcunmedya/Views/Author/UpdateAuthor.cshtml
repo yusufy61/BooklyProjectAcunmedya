@@ -1,0 +1,24 @@
+﻿@model BooklyProjectAcunmedya.Entities.Author
+@{
+    ViewBag.Title = "UpdateAuthor";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Yazar Bilgileri Güncelle</h2>
+<br />
+
+<form method="post">
+
+    <input type="hidden" name="AuthorId" value="@Model.AuthorId"/>
+
+    <label>Ad</label>
+    <input type="text" name="Name" value="@Model.Name" class="form-control" required />
+    <br />
+
+    <label>Soyad</label>
+    <input type="text" name="Surname" value="@Model.Surname" class="form-control" required />
+    <br />
+
+    <button class="btn btn-primary">Güncelle</button>
+</form>

@@ -11,9 +11,21 @@ namespace BooklyProjectAcunmedya.Controllers
     public class AuthorController : Controller
     {
         BooklyContext context = new BooklyContext();
-        public ActionResult Index()
+        public ActionResult Index(string searchText)
         {
-            return View();
+            var authors = new List<Author>();
+            if (string.IsNullOrEmpty(searchText))
+            {
+                authors = context.Authors.ToList();
+                return View(authors);
+            }
+            else
+            {
+                authors = context.Authors
+                    .Where(x => x.Name.Contains(searchText))
+                    .ToList();
+                return View(authors);
+            }
         }
 
         [HttpGet]
@@ -23,26 +35,46 @@ namespace BooklyProjectAcunmedya.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateAuthor(Category model)
+        public ActionResult CreateAuthor(Author model)
         {
+            if(!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            context.Authors.Add(model);
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public ActionResult UpdateAuthor()
+        public ActionResult UpdateAuthor(int id)
         {
-            return View();
+            var author = context.Authors.Find(id);
+            return View(author);
         }
 
         [HttpPost]
-        public ActionResult UpdateAuthor(Category model)
+        public ActionResult UpdateAuthor(Author model)
         {
+            if(!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var updatedAuthor = context.Authors.Find(model.AuthorId);
+
+            updatedAuthor.Name = model.Name;
+            updatedAuthor.Surname = model.Surname;
+            
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public ActionResult DeleteAuthor()
+        public ActionResult DeleteAuthor(int id)
         {
+            var author = context.Authors.Find(id);
+            context.Authors.Remove(author);
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
     }

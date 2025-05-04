@@ -1,0 +1,34 @@
+﻿@model BooklyProjectAcunmedya.Entities.Banner
+@{
+    ViewBag.Title = "UpdateBanner";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Afiş Güncelle</h2>
+<br />
+
+<form method="post">
+
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <label>Afiş Resmi</label>
+    <br />
+    <img src="@Model.ImageUrl" style="height:200px;width:200px"/>
+    <br />
+    <br />
+    <label>Başlık</label>
+    <input type="text" name="Title" class="form-control" value="@Model.Title" required />
+    <br />
+
+    <label>Açıklama</label>
+    <input type="text" name="Description" class="form-control" value="@Model.Description" required />
+    <br />
+
+    <label>Resim Url</label>
+    <input type="text" name="ImageUrl" class="form-control" value="@Model.ImageUrl" required />
+    <br />
+
+    <button class="btn btn-outline-primary"><i class="fa fa-save"></i>  Güncelle</button>
+
+</form>

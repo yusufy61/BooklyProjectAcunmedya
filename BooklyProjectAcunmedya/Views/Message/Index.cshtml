@@ -1,0 +1,45 @@
+﻿@model List<BooklyProjectAcunmedya.Entities.Message>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Mesajlar</h2>
+<br />
+
+@{ 
+    int count = 0;
+}
+
+<form method="get">
+    <div class="form-group">
+        <label>Aranacak Kelime</label>
+        <input type="text" name="searchText" placeholder="Aranacak Kelime"/>
+        <button class="btn btn-primary">Ara</button>
+    </div>
+</form>
+<br />
+<table class="table table-bordered">
+
+    <tr>
+        <th>#</th>
+        <th>İsim Soyisim</th>
+        <th>Yorum</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Name</td>
+            <td>@item.MessageContent</td>
+            <td><a href="/Message/DeleteMessage/@item.MessageId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Message/UpdateMessage/@item.MessageId" class="btn btn-info">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+<br />
+<td><a href="/Message/CreateMessage/" class="btn btn-primary">Yeni Yorum</a></td>

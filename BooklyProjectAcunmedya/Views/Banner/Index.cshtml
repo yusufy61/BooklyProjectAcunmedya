@@ -1,0 +1,47 @@
+﻿@model List<BooklyProjectAcunmedya.Entities.Banner>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h3>Öne Çıkan Kitaplar</h3>
+<br />
+
+@{ 
+    int count = 0;
+}
+
+<form method="get">
+    <div class="form-group">
+        <label>Aranacak Kelime</label>
+        <input type="text" name="searchText" placeholder="Aranacak Kelime" />
+        <button class="btn btn-primary">Ara</button>
+    </div>
+</form>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Resim Url</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+
+        <tr>
+            <td>@count</td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td><img src="@item.ImageUrl" style="height:100px;width:100px"/></td>
+            <td><a href="/Banner/DeleteBanner/@item.Id" class="btn btn-outline-danger" >Sil</a></td>
+            <td><a href="/Banner/UpdateBanner/@item.Id" class="btn btn-outline-info" >Güncelle</a></td>
+        </tr>
+    }
+</table>
+<br />
+<td><a href="/Banner/CreateBanner/" class="btn btn-outline-primary" >Yeni Afiş Ekle</a></td>

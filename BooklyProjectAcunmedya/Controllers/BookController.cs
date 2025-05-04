@@ -33,7 +33,11 @@ namespace BooklyProjectAcunmedya.Controllers
         public ActionResult CreateBook()
         {
             var authorsNameList = context.Authors
-                .Select(a => a.Name + " " + a.Surname)
+                .Select(a => new SelectListItem
+                {
+                    Value = a.AuthorId.ToString(),
+                    Text = a.Name + " " + a.Surname
+                })
                 .ToList();
 
             ViewData["authors"] = authorsNameList;
@@ -47,6 +51,17 @@ namespace BooklyProjectAcunmedya.Controllers
             if(!ModelState.IsValid)
             {
                 ModelState.AddModelError(string.Empty, "Lütfen tüm alanları doldurunuz!");
+
+                var authorsNameList = context.Authors
+                .Select(a => new SelectListItem
+                {
+                    Value = a.AuthorId.ToString(),
+                    Text = a.Name + " " + a.Surname
+                })
+                .ToList();
+
+                ViewData["authors"] = authorsNameList;
+
                 return View(model);
             }
             if(model.CoverImageFile != null)
@@ -69,7 +84,11 @@ namespace BooklyProjectAcunmedya.Controllers
             var book = context.Books.Find(id);
 
             var authorsNameList = context.Authors
-                .Select(a => a.Name + " " + a.Surname)
+                .Select(a => new SelectListItem
+                {
+                    Text = a.AuthorId.ToString(),
+                    Value = a.Name + " " + a.Surname
+                })
                 .ToList();
 
             ViewData["authors"] = authorsNameList;
@@ -84,10 +103,21 @@ namespace BooklyProjectAcunmedya.Controllers
             {
                 return View(model);
             }
+            if (model.CoverImageFile != null)
+            {
+                var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                var saveLocation = currentDirectory + "images\\Books\\";
+                var fileName = Path.Combine(saveLocation, model.CoverImageFile.FileName);
+                model.CoverImageFile.SaveAs(fileName);
+                model.CoverImageUrl = "/images/Books/" + model.CoverImageFile.FileName;
+            }
+
             var updatedBook = context.Books.Find(model.BookId);
 
             updatedBook.BookName = model.BookName;
-
+            updatedBook.Price = model.Price;
+            updatedBook.AuthorId = model.AuthorId;
+            updatedBook.IsOnSale = model.IsOnSale;
 
             return RedirectToAction("Index");
         }

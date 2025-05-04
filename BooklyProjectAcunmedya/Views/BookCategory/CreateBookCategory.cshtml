@@ -1,0 +1,23 @@
+﻿@model BooklyProjectAcunmedya.Entities.BookCategory
+@{
+    ViewBag.Title = "CreateBookCategory";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h3>Yeni Kategori Ekle</h3>
+<br />
+
+<form method="post">
+
+    <label> Kitap</label>
+    @Html.DropDownListFor(x => x.BookId, (List<SelectListItem>)ViewData["books"], "Kitap Seçiniz..", new { @class = "form-control", required = "required" })
+    <br />
+
+    <label> Kategory</label>
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewData["category"], "Kategory Seçiniz..", new { @class = "form-control", required = "required" })
+    <br />
+
+    <button class="btn btn-outline-primary"><i class="fa fa-save"></i> Kaydet</button>
+
+</form> 

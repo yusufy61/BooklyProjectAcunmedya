@@ -1,0 +1,21 @@
+﻿@model BooklyProjectAcunmedya.Entities.PhotoGallery
+@{
+    ViewBag.Title = "UpdatePhoto";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h3>Fotoğraf Güncelle</h3>
+<br />
+
+<form method="post">
+
+    <input type="hidden" name="PhotoGalleryId" value="@Model.PhotoGalleryId"/>
+
+    <label>Resim Url</label>
+    <input type="url" name="ImageUrl" class="form-control" value="@Model.ImageUrl" required />
+    <br />
+
+    <button class="btn btn-outline-primary">Güncelle</button>
+
+</form>

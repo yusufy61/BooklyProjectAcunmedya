@@ -1,26 +1,23 @@
-﻿<section id="message">
+﻿<section id="message" style="background-image: url('/Templates/Bookly/images/banner-image-bg-1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 50px 0;>
     <div class="container">
         <div class="text-center mb-4 mt-4">
             <h3>Bizimle İletişime Geçin</h3>
         </div>
 
-        <div class="row text-center">
-            <div class="col-lg-6 text-center">
-                <form action="/Default/SendMessage" method="post">
-                    <input class="form-control" type="text" name="Name" placeholder="Adınız Soyadınız" required />
-                    <br />
-                    <input class="form-control" type="email" name="Email" placeholder="Email Adresiniz" required />
-                    <br />
-                    <input class="form-control" type="text" name="Subject" placeholder="Konu" required />
-                    <br />
-                    <textarea class="form-control" name="MessageContent" rows="5" placeholder="Mesajınızı Yazın..."></textarea>
-                    <br />
-                    <button onclick="sendMessage()" class="btn btn-danger">Mesajı Gönder</button>
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <form action="/Default/SendMessage" method="post" class="text-center">
+                    <input class="form-control mb-3" type="text" name="Name" placeholder="Adınız Soyadınız" required />
+                    <input class="form-control mb-3" type="email" name="Email" placeholder="Email Adresiniz" required />
+                    <input class="form-control mb-3" type="text" name="Subject" placeholder="Konu" required />
+                    <textarea class="form-control mb-3" name="MessageContent" rows="5" placeholder="Mesajınızı Yazın..."></textarea>
+                    <button type="submit" onclick="sendMessage()" class="btn btn-danger">Mesajı Gönder</button>
                 </form>
             </div>
         </div>
     </div>
 </section>
+
 
 <script>
 

@@ -30,7 +30,11 @@ namespace BooklyProjectAcunmedya.Controllers
 
         public PartialViewResult DefaultBooks()
         {
-            var books = context.Books.OrderByDescending(x => x.BookId).Take(6).ToList();
+            var books = context.Books
+                .OrderByDescending(x => x.BookId)
+                .Take(6)
+                .ToList();
+
             return PartialView(books);
         }
 
@@ -47,5 +51,74 @@ namespace BooklyProjectAcunmedya.Controllers
             Thread.Sleep(2000); // Sistemi 2 saniyeliğine uykuya al
             return RedirectToAction("Index");
         }
+
+        public PartialViewResult DefaultBanner()
+        {
+            var banners = context.Banners
+                .OrderByDescending( x => x.Id)
+                .Take(3)
+                .ToList();
+
+            return PartialView(banners);
+        }
+
+        public PartialViewResult DefaultTestimonial()
+        {
+            var testimonials = context.Testimonials.ToList();
+            return PartialView(testimonials);
+        }
+
+        public PartialViewResult DefaultFeatured()
+        {
+            var values = context.Books
+                .Take(3)
+                .ToList();
+
+
+            return PartialView(values);
+        }
+
+        public PartialViewResult DefaultLatestReleases()
+        {
+            var latestReleasesBooks = context.Books
+                .OrderByDescending(x => x.BookId)
+                .Take(3)
+                .ToList();
+
+
+            return PartialView(latestReleasesBooks);
+        }
+
+        public PartialViewResult DefaultBestReview()
+        {
+            var bestReviewBooks = context.Books
+                .OrderByDescending( x => x.Review)
+                .Take(3)
+                .ToList();
+
+            return PartialView(bestReviewBooks);
+        }
+
+        public PartialViewResult DefaultOnSale()
+        {
+            var onSaleBooks = context.Books
+                .Where(x => x.IsOnSale)
+                .Take(3)
+                .ToList();
+
+            return PartialView(onSaleBooks);
+        }
+
+        public PartialViewResult DefaultPhotoGallery()
+        {
+            var galleryPhotos = context.PhotoGalleries
+                .OrderByDescending(x => x.PhotoGalleryId)
+                .Take(6)
+                .ToList();
+
+            return PartialView(galleryPhotos);
+        }
+
+        
     }
 }

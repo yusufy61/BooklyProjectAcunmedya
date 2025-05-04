@@ -1,0 +1,31 @@
+﻿@model BooklyProjectAcunmedya.Entities.Message
+@{
+    ViewBag.Title = "CreateMessage";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h3>Yeni Mesaj</h3>
+<br />
+
+<form method="post">
+
+    <label>İsim</label>
+    <input type="text" name="Name" class="form-control" placeholder="İsim Soyisim" required/>
+    <br />
+
+    <label>Email</label>
+    <input type="email" name="Email" class="form-control" required/>
+    <br />
+
+    <label>Konu</label>
+    <input type="text" name="Subject" class="form-control" required/>
+    <br />
+
+    <label>Yorum</label>
+    <textarea class="form-control" name="MessageContent" rows="5" placeholder="Mesajınız.." required></textarea>
+    <br />
+
+    <button class="btn btn-outline-primary">Kaydet</button>
+
+</form>

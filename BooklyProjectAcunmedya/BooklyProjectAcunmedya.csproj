@@ -129,6 +129,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminLayoutController.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
+    <Compile Include="Controllers\BannerController.cs" />
+    <Compile Include="Controllers\BookCategoryController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
@@ -136,6 +138,8 @@
     <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\PhotoGalleryController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Data\BooklyContext.cs" />
     <Compile Include="Entities\Admin.cs" />
@@ -433,11 +437,31 @@
     <Content Include="Views\Profile\ChangePassword.cshtml" />
     <Content Include="Views\Book\CreateBook.cshtml" />
     <Content Include="Views\Book\UpdateBook.cshtml" />
+    <Content Include="Views\Author\Index.cshtml" />
+    <Content Include="Views\Author\CreateAuthor.cshtml" />
+    <Content Include="Views\Author\UpdateAuthor.cshtml" />
+    <Content Include="Views\Banner\Index.cshtml" />
+    <Content Include="Views\Banner\CreateBanner.cshtml" />
+    <Content Include="Views\Banner\UpdateBanner.cshtml" />
+    <Content Include="Views\BookCategory\Index.cshtml" />
+    <Content Include="Views\BookCategory\CreateBookCategory.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Message\CreateMessage.cshtml" />
+    <Content Include="Views\Message\UpdataMessage.cshtml" />
+    <Content Include="Views\PhotoGallery\Index.cshtml" />
+    <Content Include="Views\PhotoGallery\CreatePhoto.cshtml" />
+    <Content Include="Views\PhotoGallery\UpdatePhoto.cshtml" />
+    <Content Include="Views\Default\DefaultBanner.cshtml" />
+    <Content Include="Views\Default\DefaultTestimonial.cshtml" />
+    <Content Include="Views\Default\DefaultFeatured.cshtml" />
+    <Content Include="Views\Default\DefaultLatestReleases.cshtml" />
+    <Content Include="Views\Default\DefaultBestReview.cshtml" />
+    <Content Include="Views\Default\DefaultOnSale.cshtml" />
+    <Content Include="Views\Default\DefaultPhotoGallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\Books\" />
-    <Folder Include="Views\Author\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

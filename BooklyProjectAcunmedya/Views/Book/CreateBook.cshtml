@@ -23,15 +23,7 @@
     <br />
 
     <label>Yazar</label>
-    <select name="AuthorName" class="form-control" required>
-        <option value="">Yazar seçiniz...</option>
-        @foreach (var author in (List<string>)ViewData["authors"])
-        {
-            <option value="@author">
-                @author
-            </option>
-        }
-    </select>
+    @Html.DropDownListFor(x => x.AuthorId, (List<SelectListItem>)ViewData["authors"], "Yazar Seçiniz..." , new { @class = "form-control", required = "required"})
     <br />
 
     <div class="form-check">

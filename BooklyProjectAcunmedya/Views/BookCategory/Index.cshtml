@@ -1,0 +1,63 @@
+﻿@model List<BooklyProjectAcunmedya.Entities.BookCategory>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h3>Kitap Kategorileri Listesi</h3>
+<br />
+
+@{
+    int count = 0;
+}
+
+<form method="get">
+    <div class="form-group">
+        <label>Aranacak Kelime </label>
+        <input type="text" name="searchText" placeholder="Kitap Adı"/>
+        <button class="btn btn-primary">Ara</button>
+    </div>
+</form>
+<br />
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>#</th>
+        <th>Kitap Adı</th>
+        <th>Yazar</th>
+        <th>Kapak Resmi</th>
+        <th>Kategoriler</th>
+    </tr>
+
+    @foreach (var bookGroup in Model.GroupBy(bc => bc.BookId))
+    {
+        var book = bookGroup.First().Book;
+        <tr>
+            <td>@count</td>
+            <td>@book.BookName</td>
+            <td>@book.Author.Name</td>
+            <td><img src="@book.CoverImageUrl" style="height:50px;width:50px"/></td>
+            <td>
+                @foreach (var category in bookGroup)
+                {
+                    <span class="badge bg-primary">@category.Category.CategoryName</span>
+                    
+                    <span style="cursor: pointer;" class="badge bg-danger"
+                          onclick="location.href='/BookCategory/DeleteCategory/@category.BookCategoryId'">
+                        -
+                    </span>
+
+                    <br />
+
+
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+
+<td><a href="/BookCategory/CreateBookCategory/" class="btn btn-outline-primary"><i class="fa fa-save"></i> Yeni Kategori Güncelle</a></td>

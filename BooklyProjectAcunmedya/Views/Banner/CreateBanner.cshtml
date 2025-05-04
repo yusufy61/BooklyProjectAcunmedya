@@ -1,0 +1,27 @@
+﻿@model BooklyProjectAcunmedya.Entities.Banner
+@{
+    ViewBag.Title = "CreateBanner";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Yeni Afiş</h2>
+<br />
+
+<form method="post">
+
+    <label>Başlık</label>
+    <input type="text" name="Title" class="form-control" required />
+    <br />
+
+    <label>Açıklama</label>
+    <input type="text" name="Description" class="form-control" required />
+    <br />
+
+    <label>Resim Url</label>
+    <input type="text" name="ImageUrl" class="form-control" required />
+    <br />
+
+    <button class="btn btn-outline-primary"><i class="fa fa-save"></i>  Kaydet</button>
+
+</form>

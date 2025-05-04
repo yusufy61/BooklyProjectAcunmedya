@@ -33,7 +33,7 @@
     <label>Yazar</label>
     <select name="AuthorName" class="form-control" required>
         <option value="">Yazar seçiniz...</option>
-        @foreach (var author in (List<string>)ViewData["authors"])
+        @foreach (var author in (List<SelectListItem>)ViewData["authors"])
         {
             <option value="@author">
                 @author
